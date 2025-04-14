@@ -1,0 +1,5 @@
+go get github.com/gin-gonic/gin
+go get github.com/gocql/gocql
+go get github.com/go-redis/redis/v8
+go get github.com/joho/godotenv
+go get github.com/sirupsen/logrus

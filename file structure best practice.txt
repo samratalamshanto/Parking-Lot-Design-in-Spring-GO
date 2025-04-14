@@ -1,0 +1,31 @@
+myapp/
+├── cmd/                     # Entry points (main.go for CLI, API, etc.)
+│   └── server/
+│       └── main.go
+│
+├── internal/                # Private application code (business logic)
+│   ├── user/                # Example feature module
+│   │   ├── handler.go       # HTTP handlers
+│   │   ├── service.go       # Business logic
+│   │   ├── repository.go    # DB access
+│   │   ├── model.go         # Data models
+│   │   └── dto.go           # Request/Response structs
+│   │
+│   └── middleware/          # Gin middleware (auth, logging, recovery, etc.)
+│
+├── pkg/                     # Shared packages (utils, helpers, etc.)
+│   ├── logger/              # Custom logger (e.g., Zap, Logrus wrapper)
+│   ├── config/              # App configuration loader (env, JSON, etc.)
+│   └── database/            # DB connection (GORM setup, migrations)
+│
+├── api/                     # OpenAPI/Protobuf specs if using
+│
+├── migrations/              # DB migration files (if using migrate tools)
+│
+├── web/                     # Frontend code if full stack (React, etc.)
+│
+├── .env                     # Environment variables
+├── .gitignore
+├── go.mod
+├── go.sum
+└── README.md
