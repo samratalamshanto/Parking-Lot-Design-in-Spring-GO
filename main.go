@@ -3,6 +3,7 @@ package main
 import (
 	"Parking_Slot_in_GO/pkg/config"
 	"Parking_Slot_in_GO/pkg/database"
+	"Parking_Slot_in_GO/pkg/global_exception_handler"
 	"Parking_Slot_in_GO/pkg/redis"
 	"Parking_Slot_in_GO/pkg/router"
 	"fmt"
@@ -17,6 +18,8 @@ func main() {
 	redis.ConnectRedis()
 
 	routerEngine := gin.Default()
+
+	routerEngine.Use(global_exception_handler.GlobalExceptionHandler())
 	router.ConfigRouter(routerEngine)
 
 	var PORT = os.Getenv("PORT")

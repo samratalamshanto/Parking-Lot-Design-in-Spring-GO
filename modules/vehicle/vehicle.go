@@ -8,10 +8,10 @@ import (
 
 type Vehicle struct {
 	models.CommonFields
-	LicencePlateNumber   string `json:"licencePlateNumber" gorm:"column:licencePlateNumber"`
-	vehicle.EVehicleType `json:"vehicleType" gorm:"column:vehicleType"`
-	colors.EColor        `json:"color" gorm:"column:color"`
-	RatePerHour          float64 `json:"ratePerHour" gorm:"column:ratePerHour"`
-	TotalFee             float64 `json:"totalFee" gorm:"column:totalFee"`
-	TotalHr              float64 `json:"totalHr" gorm:"column:totalHr"`
+	LicencePlateNumber   string `json:"licencePlateNumber" gocql:"column:licence_plate_number"`
+	vehicle.EVehicleType `json:"vehicleType" gocql:"column:vehicle_type"`
+	colors.EColor        `json:"color" gocql:"column:color"`
+	RatePerHrs           float64 `json:"ratePerHour" gocql:"column:rate_per_hrs"`
+	TotalFee             float64 `json:"totalFee" gocql:"column:total_fee"`
+	TotalHr              float64 `json:"totalHr" gocql:"column:total_hr"`
 }

@@ -16,7 +16,8 @@ func GetTicket(ctx *gin.Context) {
 	err := ctx.ShouldBind(&vehicleObj)
 	if err != nil {
 		utitliy.ClientErrResponse(ctx, "Invalid Request Body.")
-		log.Fatalf("Bind error: %s", err.Error())
+		log.Println("Bind error: %s", err.Error())
+		ctx.Abort()
 	}
 	BookSpotAndReturnTicket(ctx, vehicleObj)
 }
