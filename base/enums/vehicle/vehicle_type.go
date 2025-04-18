@@ -1,4 +1,4 @@
-package enums
+package vehicle
 
 type EVehicleType string
 

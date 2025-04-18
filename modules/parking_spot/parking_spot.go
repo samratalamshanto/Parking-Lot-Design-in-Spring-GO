@@ -1,8 +1,8 @@
 package parking_spot
 
 import (
-	"Parking_Slot_in_GO/modules/base/enums/parking_spot"
-	"Parking_Slot_in_GO/modules/base/models"
+	"Parking_Slot_in_GO/base/enums/parking_spot"
+	"Parking_Slot_in_GO/base/models"
 )
 
 type ParkingSpot struct {
