@@ -4,12 +4,26 @@ import (
 	"Parking_Slot_in_GO/pkg/config"
 	"Parking_Slot_in_GO/pkg/database"
 	"Parking_Slot_in_GO/pkg/redis"
+	"Parking_Slot_in_GO/pkg/router"
 	"fmt"
+	"github.com/gin-gonic/gin"
+	"log"
+	"os"
 )
 
 func main() {
 	config.LoadConfig()
 	database.ConnectDb()
 	redis.ConnectRedis()
+
+	routerEngine := gin.Default()
+	router.ConfigRouter(routerEngine)
+
+	var PORT = os.Getenv("PORT")
+	err := routerEngine.Run(":" + PORT)
+	if err != nil {
+		log.Fatalf("Error starting server: %v", err)
+	}
+
 	fmt.Println("Application running...")
 }
