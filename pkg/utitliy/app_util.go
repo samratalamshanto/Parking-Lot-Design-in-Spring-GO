@@ -75,52 +75,11 @@ func GetUUID() gocql.UUID {
 	return gocql.UUID(uuid.New())
 }
 
-//func SuccessResponse(data interface{}, msg string) *models.Response {
-//	response := models.Response{
-//		Code:      200,
-//		Message:   msg,
-//		Data:      data,
-//		IsSuccess: true,
-//	}
-//	return &response
-//}
-//
-//func CreatedResponse(data interface{}, msg string) *models.Response {
-//	response := models.Response{
-//		Code:      201,
-//		Message:   msg,
-//		Data:      data,
-//		IsSuccess: true,
-//	}
-//	return &response
-//}
-//
-//func ClientErrResponse(data interface{}, msg string) *models.Response {
-//	response := models.Response{
-//		Code:      400,
-//		Message:   msg,
-//		Data:      data,
-//		IsSuccess: false,
-//	}
-//	return &response
-//}
-//
-//func ServerErrResponse(data interface{}, msg string) *models.Response {
-//	response := models.Response{
-//		Code:      500,
-//		Message:   msg,
-//		Data:      data,
-//		IsSuccess: false,
-//	}
-//	return &response
-//}
-//
-//func UnauthorizedErrResponse(msg string) *models.Response {
-//	response := models.Response{
-//		Code:      401,
-//		Message:   msg,
-//		Data:      nil,
-//		IsSuccess: false,
-//	}
-//	return &response
-//}
+// ErrorCheck() is a helper function that takes a value of any type and an error.
+// If the error is nil, it returns the value; if the error is non-nil, it panics.
+func ErrorCheck[T any](value T, err error) T {
+	if err != nil {
+		panic(err)
+	}
+	return value
+}
